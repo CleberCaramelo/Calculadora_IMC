@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de IMC</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .result {
+        margin-top: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Calculadora de IMC</h1>
+      <label for="peso">Peso (kg):</label>
+      <input
+        type="number"
+        v-model="peso"
+        id="peso"
+        placeholder="Digite seu peso"
+      />
+
+      <label for="altura">Altura (m):</label>
+      <input
+        type="number"
+        v-model="altura"
+        id="altura"
+        placeholder="Digite sua altura"
+        step="0.01"
+      />
+
+      <button @click="calcularIMC">Calcular IMC</button>
+
+      <div class="result" v-if="imc !== null">
+        Seu IMC é: {{ imc.toFixed(2) }} - {{ classificacao }}
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
